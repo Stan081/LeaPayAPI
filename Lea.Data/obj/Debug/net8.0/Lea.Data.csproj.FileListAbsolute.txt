@@ -1,0 +1,12 @@
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/bin/Debug/net8.0/Lea.Data.deps.json
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/bin/Debug/net8.0/Lea.Data.dll
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/bin/Debug/net8.0/Lea.Data.pdb
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.AssemblyInfoInputs.cache
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.AssemblyInfo.cs
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.csproj.CoreCompileInputs.cache
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.sourcelink.json
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.dll
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/refint/Lea.Data.dll
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/Lea.Data.pdb
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Data/obj/Debug/net8.0/ref/Lea.Data.dll
