@@ -1,4 +1,5 @@
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/bin/Debug/net8.0/Lea.Service.deps.json
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/bin/Debug/net8.0/Lea.Service.runtimeconfig.json
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/bin/Debug/net8.0/Lea.Service.dll
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/bin/Debug/net8.0/Lea.Service.pdb
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/bin/Debug/net8.0/Lea.Data.dll
@@ -15,4 +16,5 @@
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/obj/Debug/net8.0/Lea.Service.dll
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/obj/Debug/net8.0/refint/Lea.Service.dll
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/obj/Debug/net8.0/Lea.Service.pdb
+/Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/obj/Debug/net8.0/Lea.Service.genruntimeconfig.cache
 /Users/stan/Documents/LEAT_Projects/LEA/Lea.Service/obj/Debug/net8.0/ref/Lea.Service.dll

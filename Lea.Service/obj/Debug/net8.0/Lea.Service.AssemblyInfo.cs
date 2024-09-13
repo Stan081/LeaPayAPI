@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lea.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0a8f7e01aef26bb578cb2dd7cd999fd85514f05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e194f6eca83226ac54076e19d3e134d45406ce0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lea.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lea.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,6 @@
 @Lea.API_HostAddress = http://localhost:5257
 
-GET {{Lea.API_HostAddress}}/weatherforecast/
+GET http://localhost:5257/user/
 Accept: application/json
 
 ###
