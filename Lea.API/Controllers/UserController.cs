@@ -1,4 +1,5 @@
 using Lea.Repository.Context;
+using Lea.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,16 +9,16 @@ namespace Lea.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly LeaContext dbContext;
-        public UserController( LeaContext dbContext)
+        private readonly IUserService userService;
+        public UserController( IUserService userService )
         {
-            this.dbContext = dbContext;
+            this.userService = userService;
         }
 
         [HttpGet]
         public IActionResult GetUsers(){
-            var users = dbContext.Users.ToList();
-            return Ok(users);
+            //var users = dbContext.Users.ToList();
+            return Ok();
         }
     }
 }
