@@ -9,7 +9,8 @@ public class User
         public Guid Id { get; set; }       
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        public int UserTypeId { get; set; }
+        public int UserBVN{ get; set; }
+        public int UserNIN{ get; set; }
         public required string EmailAddress { get; set; }
         public required string Password { get; set; }
         public required string PasswordKey { get; set; }

@@ -8,10 +8,12 @@ namespace Lea.Repository.Implementations;
 public class UserRepository : IUserRepository
 {
     private readonly LeaContext _dbContext;
+    private readonly IUserRepository _userRepository;
 
-    public UserRepository(LeaContext dbContext)
+    public UserRepository(LeaContext dbContext, IUserRepository userRepository)
     {
         _dbContext = dbContext;
+        _userRepository = userRepository;
     }
 
     public  Task<User> GetUserByIdAsync(int id)
