@@ -1,38 +1,35 @@
-using Lea.Data.DTOs;
 using Lea.Data.Models;
 using Lea.Repository.Context;
 using Lea.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lea.Repository.Implementations;
 
 public class UserRepository : IUserRepository
 {
-    private readonly LeaContext _dbContext;
-    private readonly IUserRepository _userRepository;
+    private readonly DbContext _context;
 
-    public UserRepository(LeaContext dbContext, IUserRepository userRepository)
+    public UserRepository(DbContext context)
     {
-        _dbContext = dbContext;
-        _userRepository = userRepository;
+        _context = context;
     }
 
-    public  Task<User> GetUserByIdAsync(int id)
+    public async Task<User> GetUserByEmailAsync(string email)
     {
-        throw new NotImplementedException();
+        return await _context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public Task<List<User>> GetUsersAsync()
+    public async Task<User> CreateUserAsync(User user)
     {
-        throw new NotImplementedException();
+        _context.Set<User>().Add(user);
+        await _context.SaveChangesAsync();
+        return user;
     }
 
-    public Task<bool> UpdateUserdetails(int id, UpdateUserDTO user)
+    public async Task<User> UpdateUserAsync(User user)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<UserDetailsDTO> UpdateUserdetails(int id, CreateUserDTO user)
-    {
-        throw new NotImplementedException();
+        _context.Entry(user).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return user;
     }
 }

@@ -1,9 +1,11 @@
-using System;
+using Lea.Service.DTOs;
+namespace Lea.Service.Interfaces
+{ 
 
-namespace Lea.Service.Interfaces;
-
-public class IUserService
-{
-    
-
+    public interface IUserService
+    {
+        Task<UserDto> RegisterUserAsync(CreateUserDto createUserDto);
+        Task<UserDto> LoginUserAsync(LoginUserDto loginUserDto);
+        Task<UserDto> GetUserByEmailAsync(string email);
+    }
 }
