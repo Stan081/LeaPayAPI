@@ -2,7 +2,7 @@ namespace Lea.Service.DTOs
 {
     public class CardDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string CardHolderName { get; set; }
         public DateTime ExpiryDate { get; set; }
         public string CardType { get; set; } // e.g., Virtual, Physical, Linked

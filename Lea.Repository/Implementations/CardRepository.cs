@@ -20,7 +20,7 @@ public class CardRepository : ICardRepository
         return await _context.Set<Card>().ToListAsync();
     }
 
-    public async Task<Card?> GetCardByIdAsync(int id)
+    public async Task<Card?> GetCardByIdAsync(Guid id)
     {
         return await _context.Cards.FindAsync(id);
     }
@@ -39,7 +39,7 @@ public class CardRepository : ICardRepository
         return card;
     } 
 
-    public async Task<bool> DeleteCardAsync(int id)
+    public async Task<bool> DeleteCardAsync(Guid id)
     {
         var card = await _context.Set<Card>().FindAsync(id);
         if (card == null)

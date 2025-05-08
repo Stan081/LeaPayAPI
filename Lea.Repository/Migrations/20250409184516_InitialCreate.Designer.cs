@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Lea.Repository.Migrations
 {
     [DbContext(typeof(LeaContext))]
-    [Migration("20240913200716_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20250409184516_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -57,29 +57,42 @@ namespace Lea.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("AccountId")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CVV")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<Guid>("CardReference")
-                        .HasColumnType("uuid");
+                    b.Property<string>("CardHolderName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<int>("CardType")
-                        .HasColumnType("integer");
+                    b.Property<string>("CardIssuer")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<int>("CurrencyId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<DateOnly>("IssueDate")
-                        .HasColumnType("date");
+                    b.Property<string>("CardType")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<int>("MerchantId")
-                        .HasColumnType("integer");
+                    b.Property<string>("ComplianceInfo")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsLinkedToBankAccount")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("WalletId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -106,11 +119,9 @@ namespace Lea.Repository.Migrations
 
             modelBuilder.Entity("Lea.Data.Models.CreditPoint", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("DateIssued")
                         .HasColumnType("timestamp with time zone");
@@ -164,63 +175,24 @@ namespace Lea.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("AccountId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool?>("Deleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("EmailAddress")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("FullName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("Passrecoverytoken")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("Passrecoverytokentimeout")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("PasswordKey")
+                    b.Property<string>("PasswordToken")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("RecoveryEmail")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("Token")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("TokenTimeout")
+                    b.Property<DateTime>("TokenExpiration")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
-
-                    b.Property<int>("UserTypeId")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

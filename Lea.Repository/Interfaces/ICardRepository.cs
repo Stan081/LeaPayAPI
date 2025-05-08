@@ -7,9 +7,9 @@ namespace Lea.Repository.Interfaces
     public interface ICardRepository
     {
         Task<IEnumerable<Card>> GetAllCardsAsync();
-        Task<Card?> GetCardByIdAsync(int id); // Update the interface to match the implementation
+        Task<Card?> GetCardByIdAsync(Guid id); // Update the interface to match the implementation
         Task<Card> CreateCardAsync(Card card);
         Task<Card> AddCardAsync(Card card);
-        Task<bool> DeleteCardAsync(int id);
+        Task<bool> DeleteCardAsync(Guid id);
     }
 }

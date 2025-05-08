@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Lea.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,14 +45,16 @@ namespace Lea.Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CardId = table.Column<int>(type: "integer", nullable: false),
-                    MerchantId = table.Column<int>(type: "integer", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    IssueDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    CurrencyId = table.Column<int>(type: "integer", nullable: false),
-                    AccountId = table.Column<int>(type: "integer", nullable: false),
-                    CardType = table.Column<int>(type: "integer", nullable: false),
-                    CardReference = table.Column<Guid>(type: "uuid", nullable: false)
+                    CardNumber = table.Column<string>(type: "text", nullable: false),
+                    CardHolderName = table.Column<string>(type: "text", nullable: false),
+                    ExpiryDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CVV = table.Column<string>(type: "text", nullable: false),
+                    CardType = table.Column<string>(type: "text", nullable: false),
+                    IsLinkedToBankAccount = table.Column<bool>(type: "boolean", nullable: false),
+                    Balance = table.Column<decimal>(type: "numeric", nullable: false),
+                    WalletId = table.Column<string>(type: "text", nullable: false),
+                    ComplianceInfo = table.Column<string>(type: "text", nullable: false),
+                    CardIssuer = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,8 +65,7 @@ namespace Lea.Repository.Migrations
                 name: "CreditPoints",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     Point = table.Column<double>(type: "double precision", nullable: false),
                     IssueType = table.Column<int>(type: "integer", nullable: false),
@@ -98,24 +98,11 @@ namespace Lea.Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserTypeId = table.Column<int>(type: "integer", nullable: false),
-                    EmailAddress = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    PasswordKey = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Token = table.Column<int>(type: "integer", nullable: true),
-                    Passrecoverytoken = table.Column<int>(type: "integer", nullable: true),
-                    TokenTimeout = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    Passrecoverytokentimeout = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    Deleted = table.Column<bool>(type: "boolean", nullable: true),
-                    RecoveryEmail = table.Column<string>(type: "text", nullable: true),
-                    FullName = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
-                    AccountId = table.Column<int>(type: "integer", nullable: false)
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    PasswordToken = table.Column<string>(type: "text", nullable: false),
+                    TokenExpiration = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

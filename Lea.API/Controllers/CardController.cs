@@ -25,7 +25,7 @@ namespace Lea.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CardDto>> GetCard(int id)
+        public async Task<ActionResult<CardDto>> GetCard(Guid id)
         {
             var card = await _cardService.GetCardByIdAsync(id);
             if (card == null)
@@ -43,7 +43,7 @@ namespace Lea.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> AddCard(int id, CreateCardDto updateCardDto)
+        public async Task<IActionResult> AddCard(Guid id, CreateCardDto updateCardDto)
         {
             var updatedCard = await _cardService.AddCardAsync(id, updateCardDto);
             if (updatedCard == null)
@@ -55,7 +55,7 @@ namespace Lea.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCard(int id)
+        public async Task<IActionResult> DeleteCard(Guid id)
         {
             var deleted = await _cardService.DeleteCardAsync(id);
             if (!deleted)

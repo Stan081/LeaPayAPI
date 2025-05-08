@@ -13,5 +13,14 @@ public class AuthenticationRepository : IAuthenticationRepository
         _authenticationRepository = authenticationRepository;
         _dbContext = dbContext;
     }
-    
+
+    public Task<string> GetOtpAsync(string email)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> SaveOtpAsync(string email, string otp)
+    {
+        throw new NotImplementedException();
+    }
 }

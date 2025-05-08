@@ -5,6 +5,9 @@ using Lea.Service;
 using Lea.Service.Implementations;
 using Lea.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Lea.Service.Utils.ServiceRegistrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,17 +18,13 @@ builder.Services.AddDbContext<LeaContext>(options =>
     options.UseNpgsql(connString);
     options.LogTo(Console.WriteLine, LogLevel.Information); // Add logging
 });
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
-builder.Services.AddScoped<ICardService, CardService>();
-builder.Services.AddScoped<ICardRepository, CardRepository>();
+// Fix: Pass the configuration object instead of the builder itself
+builder.Services.AddCoreServices(builder.Configuration);
 
 var app = builder.Build();
 

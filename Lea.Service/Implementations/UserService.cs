@@ -23,7 +23,8 @@ namespace Lea.Service.Implementations
                 Email = createUserDto.Email,
                 PhoneNumber = createUserDto.PhoneNumber,
                 Name = createUserDto.Name,
-                PasswordlessToken = GenerateToken(),
+                Role = createUserDto.Role,
+                PasswordToken = GenerateToken(),
                 TokenExpiration = DateTime.UtcNow.AddMinutes(15)
             };
 
@@ -46,7 +47,7 @@ namespace Lea.Service.Implementations
                 throw new Exception("User not found");
             }
 
-            user.PasswordlessToken = GenerateToken();
+            user.PasswordToken = GenerateToken();
             user.TokenExpiration = DateTime.UtcNow.AddMinutes(15);
             await _userRepository.UpdateUserAsync(user);
 

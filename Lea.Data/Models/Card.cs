@@ -2,7 +2,7 @@ namespace Lea.Data.Models
 {
     public class Card
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public required string CardNumber { get; set; }
         public required string CardHolderName { get; set; }
         public DateTime ExpiryDate { get; set; }

@@ -33,7 +33,7 @@ namespace Lea.Service
             });
         }
 
-        public async Task<CardDto?> GetCardByIdAsync(int id)
+        public async Task<CardDto?> GetCardByIdAsync(Guid id)
         {
             var card = await _cardRepository.GetCardByIdAsync(id);
             if (card == null) return null;
@@ -81,7 +81,7 @@ namespace Lea.Service
             };
         }
 
-        public async Task<CardDto> AddCardAsync(int id, CreateCardDto updateCardDto)
+        public async Task<CardDto> AddCardAsync(Guid id, CreateCardDto updateCardDto)
         {
             var card = new Card
             {
@@ -112,7 +112,7 @@ namespace Lea.Service
             };
         }
 
-        public async Task<bool> DeleteCardAsync(int id)
+        public async Task<bool> DeleteCardAsync(Guid id)
         {
             return await _cardRepository.DeleteCardAsync(id);
         }

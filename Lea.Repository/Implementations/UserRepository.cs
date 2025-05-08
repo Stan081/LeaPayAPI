@@ -7,14 +7,14 @@ namespace Lea.Repository.Implementations;
 
 public class UserRepository : IUserRepository
 {
-    private readonly DbContext _context;
+    private readonly LeaContext _context;
 
-    public UserRepository(DbContext context)
+    public UserRepository(LeaContext context)
     {
         _context = context;
     }
 
-    public async Task<User> GetUserByEmailAsync(string email)
+    public async Task<User?> GetUserByEmailAsync(string email)
     {
         return await _context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
     }

@@ -1,3 +1,4 @@
+using Lea.Data.Enums;
 using System;
 
 namespace Lea.Service.DTOs
@@ -9,12 +10,14 @@ namespace Lea.Service.DTOs
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Name { get; set; }
+        public UserRole Role { get; set; }
     }
     public class CreateUserDto
     {
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Name { get; set; }
+        public UserRole Role { get; set; }
         public DateTime TokenExpiration { get; set; }
     }
 
